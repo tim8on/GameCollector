@@ -41,5 +41,15 @@ class GameViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func addTapped(_ sender: Any) {
+        //"open" CoreData
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let game = Game(context: context)
+        
+        //change the attributes of this game to what the user chooses
+        game.title = titleTextField.text
+        game.image = UIImagePNGRepresentation(gameImageView.image!)
+        
+        //save back to CoreData
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
 }
