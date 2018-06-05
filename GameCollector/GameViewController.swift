@@ -8,18 +8,26 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     
+    var imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        imagePicker.delegate = self
     }
     
     @IBAction func photosTapped(_ sender: Any) {
+        //user can choose from all photos
+        //remeber to add the privacy ask in the info.plist
+        imagePicker.sourceType = .photoLibrary
+        
+        //allows an image picker VC to pop on top
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
