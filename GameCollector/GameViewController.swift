@@ -52,13 +52,32 @@ class GameViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        //"open" CoreData
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let game = Game(context: context)
+        if game != nil {
+            game!.title = titleTextField.text
+            game!.image = UIImagePNGRepresentation(gameImageView.image!)
+        } else {
+            //"open" CoreData
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let game = Game(context: context)
+            
+            //change the attributes of this game to what the user chooses
+            game.title = titleTextField.text
+            game.image = UIImagePNGRepresentation(gameImageView.image!)
+        }
         
-        //change the attributes of this game to what the user chooses
-        game.title = titleTextField.text
-        game.image = UIImagePNGRepresentation(gameImageView.image!)
+        //save back to CoreData
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        //pop back to list screen
+        navigationController!.popViewController(animated: true)
+    }
+    
+    @IBAction func deleteTapped(_ sender: Any) {
+        //access core data
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        //delete
+        context.delete(game!)
         
         //save back to CoreData
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

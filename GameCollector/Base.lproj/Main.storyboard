@@ -81,6 +81,7 @@
                                 <state key="normal" title="Delete"/>
                                 <connections>
                                     <action selector="addTapped:" destination="GFf-WS-EXR" eventType="touchUpInside" id="zNt-Us-sR2"/>
+                                    <action selector="deleteTapped:" destination="GFf-WS-EXR" eventType="touchUpInside" id="5s5-89-VqB"/>
                                 </connections>
                             </button>
                         </subviews>
