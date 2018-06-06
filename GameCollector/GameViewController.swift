@@ -51,5 +51,8 @@ class GameViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         //save back to CoreData
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        //pop back to list screen
+        navigationController!.popViewController(animated: true)
     }
 }
