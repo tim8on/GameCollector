@@ -49,6 +49,11 @@ class GameViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
+        //remeber to add the privacy ask in the info.plist
+        imagePicker.sourceType = .camera
+        
+        //allows an image picker VC to pop on top
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func addTapped(_ sender: Any) {
