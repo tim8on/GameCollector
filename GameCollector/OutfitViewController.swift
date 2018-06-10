@@ -10,7 +10,7 @@ import UIKit
 
 class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var gameImageView: UIImageView!
+    @IBOutlet weak var outfitImageView: UIImageView!
     @IBOutlet weak var addUpdateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
@@ -23,7 +23,7 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         //change the UI elements based on if it's new or editing an existing
         if outfit != nil {
-            gameImageView.image = UIImage(data: outfit!.image as! Data)
+            outfitImageView.image = UIImage(data: outfit!.image as! Data)
             //change the button to say update instead of add
             addUpdateButton.setTitle("Wear Today", for: .normal)
         } else {
@@ -44,7 +44,7 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
     //set the image that the user chose to the game image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        gameImageView.image = image
+        outfitImageView.image = image
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
@@ -58,14 +58,14 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func addTapped(_ sender: Any) {
         if outfit != nil {
-            outfit!.image = UIImagePNGRepresentation(gameImageView.image!)
+            outfit!.image = UIImagePNGRepresentation(outfitImageView.image!)
         } else {
             //"open" CoreData
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             let outfit = Outfit(context: context)
             
             //change the attributes of this game to what the user chooses
-            outfit.image = UIImagePNGRepresentation(gameImageView.image!)
+            outfit.image = UIImagePNGRepresentation(outfitImageView.image!)
         }
         
         //save back to CoreData

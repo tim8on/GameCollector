@@ -108,6 +108,7 @@
                         <outlet property="addUpdateButton" destination="8kL-Mh-aIt" id="xYl-tn-cz5"/>
                         <outlet property="deleteButton" destination="e9d-L0-hdH" id="8Hi-pz-5Zq"/>
                         <outlet property="gameImageView" destination="m0O-Mk-bdI" id="ctt-Rg-KCl"/>
+                        <outlet property="outfitImageView" destination="m0O-Mk-bdI" id="ElX-FB-LXg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otG-Pc-qMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
