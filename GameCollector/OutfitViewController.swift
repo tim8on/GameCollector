@@ -11,7 +11,6 @@ import UIKit
 class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var gameImageView: UIImageView!
-    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var addUpdateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
@@ -25,9 +24,10 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
         //change the UI elements based on if it's new or editing an existing
         if game != nil {
             gameImageView.image = UIImage(data: game!.image as! Data)
-            titleTextField.text = game?.title
+            //change the button to say update instead of add
             addUpdateButton.setTitle("Update", for: .normal)
         } else {
+            //hide the delete button
             deleteButton.isHidden = true
         }
     }
@@ -58,7 +58,6 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func addTapped(_ sender: Any) {
         if game != nil {
-            game!.title = titleTextField.text
             game!.image = UIImagePNGRepresentation(gameImageView.image!)
         } else {
             //"open" CoreData
@@ -66,7 +65,6 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
             let game = Game(context: context)
             
             //change the attributes of this game to what the user chooses
-            game.title = titleTextField.text
             game.image = UIImagePNGRepresentation(gameImageView.image!)
         }
         

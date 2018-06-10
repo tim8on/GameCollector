@@ -57,27 +57,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2018-05-30 at 6.10.05 PM.png" translatesAutoresizingMaskIntoConstraints="NO" id="m0O-Mk-bdI">
-                                <rect key="frame" x="47" y="84" width="280" height="150"/>
+                                <rect key="frame" x="47" y="89" width="280" height="370"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="4PY-x3-r6G"/>
-                                    <constraint firstAttribute="height" constant="150" id="xAG-wS-6PC"/>
+                                    <constraint firstAttribute="width" constant="280" id="aFy-EQ-6Dt"/>
+                                    <constraint firstAttribute="height" constant="370" id="u4H-Ga-mPG"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DiK-yV-utE">
-                                <rect key="frame" x="47.5" y="284" width="280" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kL-Mh-aIt">
-                                <rect key="frame" x="172" y="364" width="30" height="30"/>
+                                <rect key="frame" x="172" y="509" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addTapped:" destination="GFf-WS-EXR" eventType="touchUpInside" id="JCV-r2-0YB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9d-L0-hdH">
-                                <rect key="frame" x="165" y="419" width="45" height="30"/>
+                                <rect key="frame" x="165" y="564" width="45" height="30"/>
                                 <state key="normal" title="Delete"/>
                                 <connections>
                                     <action selector="addTapped:" destination="GFf-WS-EXR" eventType="touchUpInside" id="zNt-Us-sR2"/>
@@ -87,15 +81,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DiK-yV-utE" firstAttribute="width" secondItem="m0O-Mk-bdI" secondAttribute="width" id="0Wh-Wi-F52"/>
-                            <constraint firstItem="8kL-Mh-aIt" firstAttribute="centerX" secondItem="Lc2-Mm-032" secondAttribute="centerX" id="0f3-7R-IBj"/>
-                            <constraint firstItem="e9d-L0-hdH" firstAttribute="centerX" secondItem="Lc2-Mm-032" secondAttribute="centerX" id="Ppq-2y-jHg"/>
-                            <constraint firstItem="DiK-yV-utE" firstAttribute="top" secondItem="m0O-Mk-bdI" secondAttribute="bottom" constant="50" id="Prc-7R-KSs"/>
-                            <constraint firstItem="8kL-Mh-aIt" firstAttribute="top" secondItem="DiK-yV-utE" secondAttribute="bottom" constant="50" id="elQ-bV-RDM"/>
-                            <constraint firstItem="m0O-Mk-bdI" firstAttribute="centerX" secondItem="Lc2-Mm-032" secondAttribute="centerX" id="enP-Nz-zsv"/>
-                            <constraint firstItem="e9d-L0-hdH" firstAttribute="top" secondItem="8kL-Mh-aIt" secondAttribute="bottom" constant="25" id="giq-xF-lyi"/>
-                            <constraint firstItem="m0O-Mk-bdI" firstAttribute="top" secondItem="ZBh-31-8cf" secondAttribute="top" constant="20" id="tzp-vl-vbI"/>
-                            <constraint firstItem="DiK-yV-utE" firstAttribute="centerX" secondItem="Lc2-Mm-032" secondAttribute="centerX" id="x35-44-fWy"/>
+                            <constraint firstItem="8kL-Mh-aIt" firstAttribute="centerX" secondItem="Lc2-Mm-032" secondAttribute="centerX" id="0Ts-Mo-zOO"/>
+                            <constraint firstItem="m0O-Mk-bdI" firstAttribute="top" secondItem="ZBh-31-8cf" secondAttribute="top" constant="25" id="1Q5-3R-iUQ"/>
+                            <constraint firstItem="m0O-Mk-bdI" firstAttribute="centerX" secondItem="Lc2-Mm-032" secondAttribute="centerX" id="Fsp-K8-gey"/>
+                            <constraint firstItem="e9d-L0-hdH" firstAttribute="centerX" secondItem="Lc2-Mm-032" secondAttribute="centerX" id="JHt-YC-L5U"/>
+                            <constraint firstItem="8kL-Mh-aIt" firstAttribute="top" secondItem="m0O-Mk-bdI" secondAttribute="bottom" constant="50" id="R4S-XA-fMg"/>
+                            <constraint firstItem="e9d-L0-hdH" firstAttribute="top" secondItem="8kL-Mh-aIt" secondAttribute="bottom" constant="25" id="aDp-Co-Kbs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZBh-31-8cf"/>
                     </view>
@@ -117,7 +108,6 @@
                         <outlet property="addUpdateButton" destination="8kL-Mh-aIt" id="xYl-tn-cz5"/>
                         <outlet property="deleteButton" destination="e9d-L0-hdH" id="8Hi-pz-5Zq"/>
                         <outlet property="gameImageView" destination="m0O-Mk-bdI" id="ctt-Rg-KCl"/>
-                        <outlet property="titleTextField" destination="DiK-yV-utE" id="wVh-kl-7N7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otG-Pc-qMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
