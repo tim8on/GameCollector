@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  OutfitViewController.swift
 //  GameCollector
 //
 //  Created by Tim Aton on 6/5/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
