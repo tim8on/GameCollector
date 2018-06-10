@@ -15,17 +15,17 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var deleteButton: UIButton!
     
     var imagePicker = UIImagePickerController()
-    var game : Game? = nil
+    var outfit : Outfit? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         
         //change the UI elements based on if it's new or editing an existing
-        if game != nil {
-            gameImageView.image = UIImage(data: game!.image as! Data)
+        if outfit != nil {
+            gameImageView.image = UIImage(data: outfit!.image as! Data)
             //change the button to say update instead of add
-            addUpdateButton.setTitle("Update", for: .normal)
+            addUpdateButton.setTitle("Wear Today", for: .normal)
         } else {
             //hide the delete button
             deleteButton.isHidden = true
@@ -57,15 +57,15 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        if game != nil {
-            game!.image = UIImagePNGRepresentation(gameImageView.image!)
+        if outfit != nil {
+            outfit!.image = UIImagePNGRepresentation(gameImageView.image!)
         } else {
             //"open" CoreData
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let game = Game(context: context)
+            let outfit = Outfit(context: context)
             
             //change the attributes of this game to what the user chooses
-            game.image = UIImagePNGRepresentation(gameImageView.image!)
+            outfit.image = UIImagePNGRepresentation(gameImageView.image!)
         }
         
         //save back to CoreData
@@ -80,7 +80,7 @@ class OutfitViewController: UIViewController, UIImagePickerControllerDelegate, U
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         //delete
-        context.delete(game!)
+        context.delete(outfit!)
         
         //save back to CoreData
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
